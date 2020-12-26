@@ -17,6 +17,22 @@ $( document ).ready(function() {
         url: "https://developers.zomato.com/api/v2.1/cuisines?lat=" + lat + "&lon=" + lon
     }).then(function(result) {
         console.log(result)
+        for (var i = 0; i < result.cuisines.length; i++) {
+            var cuisine = result.cuisines[i];
+            var squareEl = $("<div>");
+            squareEl.text(cuisine.cuisine.cuisine_name);
+            squareEl.attr("class", "col-lg-3 box " + cuisine.cuisine.cuisine_name);
+            if(i < 3) {
+                $(".contain-items1").append(squareEl)
+            } else if(i > 2 && i < 6) {
+                $(".contain-items2").append(squareEl)
+            }  else if(i > 5 && i < 9) {
+                $(".contain-items3").append(squareEl)
+            } else {
+                $(".contain-items4").append(squareEl)
+            }
+            
+        }
     })
 
 

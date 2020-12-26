@@ -1,4 +1,4 @@
-/* body {
+body {
     min-height: 100vh;
     min-width: 100vw;
     background-color: rgb(255, 217, 0);
@@ -33,9 +33,61 @@
     margin-right: auto;
     text-align: center;
     margin-bottom: 5px;
+    color: orange;
+    font-style: bold;
+    padding: 60px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-size: 30px;
+    font-weight: 1000;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: rgb(44, 44, 44);
+    border-color: white;
+    
 }
 
 .row {
     padding-left: 10px;
     padding-right: 10px;
-} */
+}
+
+/* cusine type images */
+.American {
+    background-image: url("./imgs/american-hotdogs.jpg");
+}
+
+.BBQ {
+    background-image: url("./imgs/bbq.jpg");
+}
+
+.Bar {
+    background-image: url("./imgs/barfood.jpg");
+}
+
+.Breakfast {
+    background-image: url("./imgs/breakfast.jpg");
+}
+
+.Chinese {
+    background-image: url("./imgs/chinese.jpg");
+}
+
+.Desserts {
+    background-image: url("./imgs/dessers.jpg");
+}
+
+.Fast {
+    background-image: url("./imgs/fast-food.jpg");
+}
+
+.Ice {
+    background-image: url("./imgs/ice-cream.jpg");
+}
+
+.Pizza {
+    background-image: url("./imgs/pizza.jpg");
+}
+
+.Seafood {
+    background-image: url("./imgs/seafood.jpg");
+}
