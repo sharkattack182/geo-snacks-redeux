@@ -39,7 +39,20 @@ $( document ).ready(function() {
         // on click function for the buttons
         $(".box").on("click", function(event) {
             console.log("you clicked a box");
-            console.log($(this).data('cuisine-id'))
+            console.log($(this).data('cuisine-id'));
+            var cuisineID = $(this).data('cuisine-id')
+            $(".open-screen").css("display", "none")
+
+            $.ajax({
+                headers: {
+                "user-key": "8717f09646df7022f6022fc3d15f3584"
+            },
+            method: "GET",
+            url: "https://developers.zomato.com/api/v2.1/search?count=20&lat=" + lat + "&lon=" + lon + "&radius=40233.6&cuisines=" + cuisineID + "&sort=rating"
+        }).then(function(res) {
+            console.log(res);
+
+        })
         })
     })
 })
