@@ -93,6 +93,22 @@ body {
 }
 
 
+/* result card styling */
+
+img {
+    height: auto;
+    width: 100%;
+}
+
+.card {
+    margin: 20px auto;
+    
+}
+
+.card-deck {
+    display: flex;
+}
+
 
 /* snall screen styling */
 @media (max-width: 600px) {
@@ -118,5 +134,10 @@ body {
         padding-right: 0px;
         margin-left: auto;
         margin-right: auto;
+    }
+
+    /* display card */
+    .card-deck {
+        display: inline
     }
   }

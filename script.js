@@ -64,17 +64,61 @@ $( document ).ready(function() {
                 var newCD = $("<div>");
                 var newCol = $("<div>");
                 newRow.attr("class", "row row" + i)
-                newCD.attr("class", "card-deck")
+                newCD.attr("class", "card-deck card-deck"+ i)
                 newCol.attr("class", "col-lg-12");
                 newCol.append(newCD);
                 newRow.append(newCol);
-                $(".append-here").append(newRow)
+                $(".results-display").append(newRow)
             }
 
 
             for(var i = 0; i < res.restaurants.length; i++) {
                 var restaurant = res.restaurants[i].restaurant;
+                // creating the card
                 console.log(restaurant.name);
+                var newCard = $("<div>");
+                newCard.attr("class", "card col-lg-3");
+                var cardImg = $("<img>");
+                cardImg.attr("src", "https://inews-prd-a-images.s3.eu-west-2.amazonaws.com/content/uploads/2019/12/EKmh7-uU0AAaqnv-640x360.jpg");
+                newCard.append(cardImg);
+
+                // creating and appending card body
+                var newCardBody = $("<div>");
+                newCardBody.attr("class", "card-body");
+                var newHeader = $("<h5>");
+                newHeader.text("baby Yoda");
+                var newDesc = $("<div>");
+                newDesc.text("hello world");
+                newCardBody.append(newHeader, newDesc);
+                newCard.append(newCardBody);
+
+                var newCardFooter = $("<div>");
+                newCardFooter.attr("class", "card-footer");
+                var newFooterText = $("<small>");
+                newFooterText.attr("class", "text-muted");
+                newFooterText.text("updated 3 min ago");
+                newCardFooter.append(newFooterText);
+                newCard.append(newCardFooter);
+
+                if(i < 3) {
+                    $(".card-deck0").append(newCard)
+                } else if(i > 2 && i < 6) {
+                    $(".card-deck3").append(newCard)
+                }  else if(i > 5 && i < 9) {
+                    $(".card-deck6").append(newCard)
+                } else if(i > 8 && i < 12) {
+                    $(".card-deck9").append(newCard)
+                } else if(i > 11 && i < 15) {
+                    $(".card-deck12").append(newCard)
+                } else if(i > 14 && i < 18) {
+                    $(".card-deck15").append(newCard)
+                } else if(i > 17 && i < 21) {
+                    $(".card-deck18").append(newCard)
+                } else if(i > 20 && i < 24) {
+                    $(".card-deck21").append(newCard)
+                } else {
+                    $(".card-deck24").append(newCard)
+                }
             }
         })
         })
