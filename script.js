@@ -57,6 +57,12 @@ $( document ).ready(function() {
             newContainer.attr("class", "container results-display")
             newContainer.append(newHeader);
             $(".append-here").append(newContainer);
+
+
+            for(var i = 0; i < res.restaurants.length; i++) {
+                var restaurant = res.restaurants[i].restaurant;
+                console.log(restaurant);
+            }
         })
         })
     })
