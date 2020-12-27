@@ -51,7 +51,12 @@ $( document ).ready(function() {
             url: "https://developers.zomato.com/api/v2.1/search?count=20&lat=" + lat + "&lon=" + lon + "&radius=40233.6&cuisines=" + cuisineID + "&sort=rating"
         }).then(function(res) {
             console.log(res);
-
+            var newContainer = $("<div>");
+            var newHeader = $("<h2>");
+            newHeader.text("Here is what we found")
+            newContainer.attr("class", "container results-display")
+            newContainer.append(newHeader);
+            $(".append-here").append(newContainer);
         })
         })
     })
