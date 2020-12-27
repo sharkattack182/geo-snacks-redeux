@@ -58,10 +58,17 @@ $( document ).ready(function() {
             newContainer.append(newHeader);
             $(".append-here").append(newContainer);
 
+            // creating the needed rows to house the card-decks that will display the cards
+            for(var i = 0; i < res.restaurants.length; i+= 3) {
+                var newRow = $("<div>");
+                newRow.attr("class", "row row" + i)
+                $(".append-here").append(newRow)
+            }
+
 
             for(var i = 0; i < res.restaurants.length; i++) {
                 var restaurant = res.restaurants[i].restaurant;
-                console.log(restaurant);
+                console.log(restaurant.name);
             }
         })
         })
