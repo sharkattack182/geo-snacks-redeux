@@ -61,7 +61,13 @@ $( document ).ready(function() {
             // creating the needed rows to house the card-decks that will display the cards
             for(var i = 0; i < res.restaurants.length; i+= 3) {
                 var newRow = $("<div>");
+                var newCD = $("<div>");
+                var newCol = $("<div>");
                 newRow.attr("class", "row row" + i)
+                newCD.attr("class", "card-deck")
+                newCol.attr("class", "col-lg-12");
+                newCol.append(newCD);
+                newRow.append(newCol);
                 $(".append-here").append(newRow)
             }
 
