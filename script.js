@@ -129,6 +129,17 @@ $( document ).ready(function() {
 
             $(".btn").on("click", function() {
                 console.log($(this).data("res-id"))
+                var restaurantID = $(this).data("res-id");
+                $.ajax({
+                    headers: {
+                    "user-key": "8717f09646df7022f6022fc3d15f3584"
+                },
+                method: "GET",
+                url: "https://developers.zomato.com/api/v2.1/restaurant?res_id=" + restaurantID
+            }).then(function(r) {
+                console.log(r)
+                $(".results-display").css("display", "none")
+            })
             })
         })
         })
