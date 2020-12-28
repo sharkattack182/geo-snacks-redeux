@@ -120,6 +120,10 @@ button {
     padding: 20px;
 }
 
+.reviewText {
+    margin-top: 15px;
+    color: red;
+}
 
 
 /* small screen styling */

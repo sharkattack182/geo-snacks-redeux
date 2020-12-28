@@ -148,29 +148,9 @@ $(document).ready(function () {
                 "https://developers.zomato.com/api/v2.1/restaurant?res_id=" +
                 restaurantID,
             }).then(function (r) {
-              console.log(r);
-
-                // runs an api to get reviews
-                $.ajax({
-                    headers: {
-                      "user-key": "8717f09646df7022f6022fc3d15f3584",
-                    },
-                    method: "GET",
-                    url:
-                      "https://developers.zomato.com/api/v2.1/reviews?res_id=" +
-                      restaurantID,
-                  }).then(function (reviews) {
-                    console.log(reviews);
-                  })
-
-
-
-
-
-
-
+              console.log(r);   
               $(".results-display").css("display", "none");
-              var newContainer = $("<div>");  
+              var newContainer = $("<div>");
               newContainer.attr("class", "container restuarant-display");
 
               var newRow = $("<div>");
@@ -184,12 +164,57 @@ $(document).ready(function () {
               newAddress.text(r.location.address);
               var newPhone = $("<h4>");
               newPhone.text(r.phone_numbers);
-              var newUserRating = $("<h4>");
-              newUserRating.text("User Rating: ")
+              var newUserRating = $("<div>");
+              newUserRating.attr("class", "review-display");
+              var reviewTxt = $("<h5>");
+              reviewTxt.attr("class", "reviewText")
+              reviewTxt.text("Reviews");
+              newUserRating.append(reviewTxt)
 
-              newColumn.append(newHeader, newAddress, newPhone)
+              newColumn.append(newHeader, newAddress, newPhone, newUserRating);
               newRow.append(newColumn);
               newContainer.append(newRow);
+
+
+              // runs an api to get reviews
+              $.ajax({
+                headers: {
+                  "user-key": "8717f09646df7022f6022fc3d15f3584",
+                },
+                method: "GET",
+                url:
+                  "https://developers.zomato.com/api/v2.1/reviews?res_id=" +
+                  restaurantID,
+              }).then(function (reviews) {
+                console.log(reviews.user_reviews);
+                var reviewArray = reviews.user_reviews;
+                for (var i = 0; i < reviewArray.length; i++) {
+                  var review = reviewArray[i];
+                  var newCard = $("<div>");
+                  newCard.attr("class", "card col-lg-10");
+                  var newCardBody = $("<div>");
+                  newCardBody.attr("class", "card-body");
+                  var newHeader = $("<h5>");
+                  newHeader.text("User: " + review.review.user.name);
+                  var newDesc = $("<p>");
+                  newDesc.text(review.review.review_text);
+                  var newRate = $("<p>");
+                  newRate.text(review.review.rating);
+                  newCardBody.append(newHeader, newDesc, newRate);
+                  newCard.append(newCardBody);
+
+                  var newCardFooter = $("<div>");
+                  newCardFooter.attr("class", "card-footer");
+                  var newFooterText = $("<small>");
+                  newFooterText.attr("class", "text-muted");
+                  newFooterText.text("updated 3 min ago");
+                  newCardFooter.append(newFooterText);
+                  newCard.append(newCardFooter);
+
+                  $(".review-display").append(newCard);
+                }
+              });
+
               $(".append-here").append(newContainer);
             });
           });
