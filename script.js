@@ -78,18 +78,21 @@ $( document ).ready(function() {
                 console.log(restaurant.name);
                 var newCard = $("<div>");
                 newCard.attr("class", "card col-lg-3");
-                var cardImg = $("<img>");
-                cardImg.attr("src", "https://inews-prd-a-images.s3.eu-west-2.amazonaws.com/content/uploads/2019/12/EKmh7-uU0AAaqnv-640x360.jpg");
-                newCard.append(cardImg);
+                // var cardImg = $("<img>");
+                // cardImg.attr("src", restaurant.photos_url);
+                // newCard.append(cardImg);
 
                 // creating and appending card body
                 var newCardBody = $("<div>");
                 newCardBody.attr("class", "card-body");
                 var newHeader = $("<h5>");
-                newHeader.text("baby Yoda");
+                newHeader.text(restaurant.name);
                 var newDesc = $("<div>");
-                newDesc.text("hello world");
-                newCardBody.append(newHeader, newDesc);
+                newDesc.text(restaurant.location.address);
+                var newBtn = $("<button>");
+                newBtn.attr("class", "btn btn-warning")
+                newBtn.text("More Info");
+                newCardBody.append(newHeader, newDesc, newBtn);
                 newCard.append(newCardBody);
 
                 var newCardFooter = $("<div>");
