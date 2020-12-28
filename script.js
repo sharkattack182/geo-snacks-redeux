@@ -87,12 +87,15 @@ $( document ).ready(function() {
                 newCardBody.attr("class", "card-body");
                 var newHeader = $("<h5>");
                 newHeader.text(restaurant.name);
-                var newDesc = $("<div>");
+                var newDesc = $("<p>");
                 newDesc.text(restaurant.location.address);
+                var newTel = $("<p>");
+                newTel.text(restaurant.phone_numbers);
                 var newBtn = $("<button>");
                 newBtn.attr("class", "btn btn-warning")
+                newBtn.data("res-id", restaurant.id);
                 newBtn.text("More Info");
-                newCardBody.append(newHeader, newDesc, newBtn);
+                newCardBody.append(newHeader, newDesc, newTel, newBtn);
                 newCard.append(newCardBody);
 
                 var newCardFooter = $("<div>");
@@ -123,6 +126,10 @@ $( document ).ready(function() {
                     $(".card-deck24").append(newCard)
                 }
             }
+
+            $(".btn").on("click", function() {
+                console.log($(this).data("res-id"))
+            })
         })
         })
     })

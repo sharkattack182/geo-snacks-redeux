@@ -110,6 +110,10 @@ img {
 }
 
 
+button {
+    margin-top: 15px;
+}
+
 /* snall screen styling */
 @media (max-width: 600px) {
     html, body {
