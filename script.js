@@ -188,31 +188,40 @@ $(document).ready(function () {
               }).then(function (reviews) {
                 console.log(reviews.user_reviews);
                 var reviewArray = reviews.user_reviews;
-                for (var i = 0; i < reviewArray.length; i++) {
-                  var review = reviewArray[i];
-                  var newCard = $("<div>");
-                  newCard.attr("class", "card col-lg-10");
-                  var newCardBody = $("<div>");
-                  newCardBody.attr("class", "card-body");
-                  var newHeader = $("<h5>");
-                  newHeader.text("User: " + review.review.user.name);
-                  var newDesc = $("<p>");
-                  newDesc.text(review.review.review_text);
-                  var newRate = $("<p>");
-                  newRate.text(review.review.rating);
-                  newCardBody.append(newHeader, newDesc, newRate);
-                  newCard.append(newCardBody);
 
-                  var newCardFooter = $("<div>");
-                  newCardFooter.attr("class", "card-footer");
-                  var newFooterText = $("<small>");
-                  newFooterText.attr("class", "text-muted");
-                  newFooterText.text("updated 3 min ago");
-                  newCardFooter.append(newFooterText);
-                  newCard.append(newCardFooter);
-
-                  $(".review-display").append(newCard);
+                if(reviewArray.length == 0) {
+                    var para = $("<p>");
+                    para.text("no reviews yet");
+                  $(".review-display").append(para)
+                } else {
+                    for (var i = 0; i < reviewArray.length; i++) {
+                        var review = reviewArray[i];
+                        var newCard = $("<div>");
+                        newCard.attr("class", "card col-lg-10");
+                        var newCardBody = $("<div>");
+                        newCardBody.attr("class", "card-body");
+                        var newHeader = $("<h5>");
+                        newHeader.text("User: " + review.review.user.name);
+                        var newDesc = $("<p>");
+                        newDesc.text(review.review.review_text);
+                        var newRate = $("<p>");
+                        newRate.text(review.review.rating);
+                        newCardBody.append(newHeader, newDesc, newRate);
+                        newCard.append(newCardBody);
+      
+                        var newCardFooter = $("<div>");
+                        newCardFooter.attr("class", "card-footer");
+                        var newFooterText = $("<small>");
+                        newFooterText.attr("class", "text-muted");
+                        newFooterText.text("updated 3 min ago");
+                        newCardFooter.append(newFooterText);
+                        newCard.append(newCardFooter);
+      
+                        $(".review-display").append(newCard);
+    
+                    }
                 }
+            
               });
 
               $(".append-here").append(newContainer);
