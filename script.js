@@ -64,6 +64,7 @@ $(document).ready(function () {
           var newContainer = $("<div>");
           var newHeader = $("<h2>");
           newHeader.text("Here is what we found");
+          newHeader.attr("class", "select")
           newContainer.attr("class", "container results-display");
           newContainer.append(newHeader);
           $(".append-here").append(newContainer);
@@ -96,12 +97,13 @@ $(document).ready(function () {
             newCardBody.attr("class", "card-body");
             var newHeader = $("<h5>");
             newHeader.text(restaurant.name);
+            newHeader.attr("class", "name")
             var newDesc = $("<p>");
             newDesc.text(restaurant.location.address);
             var newTel = $("<p>");
             newTel.text(restaurant.phone_numbers);
             var newBtn = $("<button>");
-            newBtn.attr("class", "btn btn-warning");
+            newBtn.attr("class", "btn");
             newBtn.data("res-id", restaurant.id);
             newBtn.text("More Info");
             newCardBody.append(newHeader, newDesc, newTel, newBtn);
@@ -111,7 +113,7 @@ $(document).ready(function () {
             newCardFooter.attr("class", "card-footer");
             var newFooterText = $("<small>");
             newFooterText.attr("class", "text-muted");
-            newFooterText.text("updated 3 min ago");
+            newFooterText.text("Reviews: " + restaurant.all_reviews_count);
             newCardFooter.append(newFooterText);
             newCard.append(newCardFooter);
 
