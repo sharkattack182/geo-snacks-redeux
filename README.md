@@ -21,7 +21,7 @@ CSS <img src="https://progress-bar.dev/30">
 ## Links
 [GitHub](https://github.com/sharkattack182/geo-snacks-redeux)
 <br>
-[Deployed](https://sharkattack182.github.io/weather-dashboard/)
+[Deployed](https://sharkattack182.github.io/geo-snacks-redeux/)
 
 ## Visuals
 ### Desktop
