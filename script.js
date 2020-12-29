@@ -161,11 +161,14 @@ $(document).ready(function () {
               newColumn.attr("class", "col-lg-8 white");
               var newHeader = $("<h2>");
               newHeader.text(r.name);
+              newHeader.attr("class", "res-name")
 
               var newAddress = $("<h4>");
               newAddress.text(r.location.address);
+              newAddress.attr("class", "res-desc");
               var newPhone = $("<h4>");
               newPhone.text(r.phone_numbers);
+              newPhone.attr("class", "res-desc");
               var newUserRating = $("<div>");
               newUserRating.attr("class", "review-display");
               var reviewTxt = $("<h5>");
@@ -193,6 +196,7 @@ $(document).ready(function () {
 
                 if(reviewArray.length == 0) {
                     var para = $("<p>");
+                    para.attr("class", "no-r")
                     para.text("no reviews yet");
                   $(".review-display").append(para)
                 } else {
@@ -201,14 +205,15 @@ $(document).ready(function () {
                         var newCard = $("<div>");
                         newCard.attr("class", "card col-lg-10");
                         var newCardBody = $("<div>");
-                        newCardBody.attr("class", "card-body");
+                        newCardBody.attr("class", "card-body review-card");
                         var newHeader = $("<h5>");
                         newHeader.text("User: " + review.review.user.name);
+                        newHeader.attr("class", "review-name")
                         var newDesc = $("<p>");
                         newDesc.text(review.review.review_text);
                         var newRate = $("<p>");
-                        newRate.text(review.review.rating);
-                        newRate.attr("class", "rating")
+                        newRate.text("Rating: " + review.review.rating);
+                        newRate.attr("class", "rating");
                         newCardBody.append(newHeader, newDesc, newRate);
                         newCard.append(newCardBody);
       

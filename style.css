@@ -143,22 +143,53 @@ p {
     font-weight: 400;
 }
 
+
+.card-footer {
+    border-radius: 0px 0px 25px 25px !important;
+    background-color: rgba(135, 204, 108, 0.712);
+}
+
 /* restaurant result page */
 .white {
-    background-color: white;
     padding: 20px;
 }
 
 .reviewText {
     margin-top: 15px;
-    color: red;
+    font-size: 40px;
+    color: rgb(41, 121, 52);
 }
 
 .rating {
-    color: red;
+    color: rgb(135, 204, 108) !important;
     font-size: x-large;
 }
 
+.res-name {
+    font-size: 100px;
+    color: rgb(41, 121, 52);
+    font-weight: 700;
+}
+
+.no-r {
+    font-size: 30px;
+}
+
+.res-desc {
+    font-size: 55px;
+    color: rgb(243, 202, 127);
+}
+
+.review-card p {
+    color: rgb(41, 121, 52);
+    font-weight: 600;
+    font-size: x-large;
+}
+
+.review-name {
+    font-size: 40px;
+    color: rgb(243, 202, 127);
+}
 
 /* small screen styling */
 @media (max-width: 600px) {
@@ -206,5 +237,43 @@ p {
     /* display card */
     .card-deck {
         display: inline
+    }
+
+
+    /* restaurant page */
+    .res-name {
+        font-size: 40px;
+        color: rgb(41, 121, 52);
+        font-weight: 700;
+    }
+    
+    .no-r {
+        font-size: 30px;
+    }
+    
+    .res-desc {
+        font-size: 25px;
+        color: rgb(135, 204, 108);
+    }
+
+    .white {
+        padding: 20px;
+        background-color: #fcf4d2;
+    }
+
+    .reviewText {
+        margin-top: 15px;
+        font-size: 30px;
+        color: rgb(41, 121, 52);
+    }
+
+    .review-card p {
+        color: rgb(41, 121, 52);
+        font-size: 18px;
+    }
+
+    .review-name {
+        font-size: 30px;
+        color: rgb(243, 202, 127);
     }
   }
