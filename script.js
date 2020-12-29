@@ -206,6 +206,7 @@ $(document).ready(function () {
                         newDesc.text(review.review.review_text);
                         var newRate = $("<p>");
                         newRate.text(review.review.rating);
+                        newRate.attr("class", "rating")
                         newCardBody.append(newHeader, newDesc, newRate);
                         newCard.append(newCardBody);
       
@@ -213,7 +214,7 @@ $(document).ready(function () {
                         newCardFooter.attr("class", "card-footer");
                         var newFooterText = $("<small>");
                         newFooterText.attr("class", "text-muted");
-                        newFooterText.text("updated 3 min ago");
+                        newFooterText.text(review.review.review_time_friendly);
                         newCardFooter.append(newFooterText);
                         newCard.append(newCardFooter);
       
